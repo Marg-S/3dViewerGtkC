@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkAdjustment" id="adjustment-move-x">
+    <property name="lower">-1</property>
+    <property name="upper">1</property>
+    <property name="step-increment">0.01</property>
+    <property name="page-increment">100</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment-move-y">
+    <property name="lower">-1</property>
+    <property name="upper">1</property>
+    <property name="step-increment">0.01</property>
+    <property name="page-increment">100</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment-move-z">
+    <property name="lower">-1</property>
+    <property name="upper">1</property>
+    <property name="step-increment">0.01</property>
+    <property name="page-increment">100</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment-rotate-x">
+    <property name="lower">0</property>
+    <property name="upper">359</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">100</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment-rotate-y">
+    <property name="lower">0</property>
+    <property name="upper">359</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">100</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment-rotate-z">
+    <property name="lower">0</property>
+    <property name="upper">359</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">100</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment-scale">
+    <property name="lower">0.1</property>
+    <property name="upper">10</property>
+    <property name="step-increment">0.1</property>
+    <property name="page-increment">100</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment-edges">
+    <property name="lower">0</property>
+    <property name="upper">100</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">100</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment-points">
+    <property name="lower">0</property>
+    <property name="upper">100</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">100</property>
+  </object>
+  <object class="GtkWindow" id="window">
+    <property name="title">3DViewer v1.0</property>
+    <property name="default-width">900</property>
+    <property name="default-height">600</property>
+    <child>
+      <object class="GtkBox" id="box-status">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox" id="box-main">
+            <property name="spacing">10</property>
+            <property name="margin-start">10</property>
+            <property name="margin-end">10</property>
+            <property name="margin-top">10</property>
+            <property name="margin-bottom">10</property>
+            <child>
+              <object class="GtkGLArea" id="gl-area">
+                <property name="hexpand">1</property>
+                <property name="vexpand">1</property>
+                <!-- <signal name="render" handler="render"/> -->
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="box-settings">
+                <property name="orientation">vertical</property>
+                <property name="spacing">10</property>
+
+                <child>
+                  <object class="GtkButton" id="button-open">
+                    <property name="label">Open file</property>
+                    <!-- <signal name="clicked" handler="clicked_open"/> -->
+                  </object>
+                </child>
+
+                <child>
+                  <object class="GtkGrid" id="grid">
+                    <property name="column-spacing">5</property>
+                    <child>
+                      <object class="GtkFrame" id="frame-move">
+
+                        <child type="label">
+                          <object class="GtkLabel">
+                            <property name="label">Move</property>
+                          </object>
+                        </child>
+
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">10</property>
+
+                            <child>
+                              <object class="GtkBox" id="box-move-x">
+                                <child>
+                                  <object class="GtkLabel" id="label-move-x">
+                                    <property name="label">X</property>
+                                    <property name="margin-start">10</property>
+                                  </object>
+
+                                </child>
+                                <child>
+                                  <object class="GtkSpinButton" id="spin-move-x">
+                                    <property name="width-chars">5</property>
+                                    <property name="adjustment">adjustment-move-x</property>
+                                    <property name="digits">2</property>
+                                    <property name="numeric">1</property>
+                                    <property name="margin-start">10</property>
+                                    <property name="margin-end">10</property>
+                                  </object>
+                                </child>
+
+                              </object>
+
+                            </child>
+
+
+                            <child>
+                              <object class="GtkBox" id="box-move-y">
+                                <child>
+                                  <object class="GtkLabel" id="label-move-y">
+                                    <property name="label">Y</property>
+                                    <property name="margin-start">10</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkSpinButton" id="spin-move-y">
+                                    <property name="width-chars">5</property>
+                                    <property name="adjustment">adjustment-move-y</property>
+                                    <property name="digits">2</property>
+                                    <property name="numeric">1</property>
+                                    <property name="margin-start">10</property>
+                                    <property name="margin-end">10</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+
+
+                            <child>
+                              <object class="GtkBox" id="box-move-z">
+                                <child>
+                                  <object class="GtkLabel" id="label-move-z">
+                                    <property name="label">Z</property>
+                                    <property name="margin-start">10</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkSpinButton" id="spin-move-z">
+                                    <property name="width-chars">5</property>
+                                    <property name="adjustment">adjustment-move-z</property>
+                                    <property name="digits">2</property>
+                                    <property name="numeric">1</property>
+                                    <property name="margin-start">10</property>
+                                    <property name="margin-end">10</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+
+                            <child>
+                              <object class="GtkButton" id="button-move">
+                                <property name="label">Move</property>
+                                  <property name="margin-start">10</property>
+                                  <property name="margin-end">10</property>
+                                  <property name="margin-bottom">10</property>
+                                <!-- <signal name="clicked" handler="clicked_move"/> -->
+                              </object>
+                            </child>
+                          </object>
+
+                        </child>
+
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkFrame" id="frame-rotate">
+
+                        <child type="label">
+                          <object class="GtkLabel">
+                            <property name="label">Rotate</property>
+                          </object>
+                        </child>
+
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">10</property>
+
+                            <child>
+                              <object class="GtkBox" id="box-rotate-x">
+                                <child>
+                                  <object class="GtkLabel" id="label-rotate-x">
+                                    <property name="label">X</property>
+                                    <property name="margin-start">10</property>
+                                  </object>
+                                </child>
+
+                                <child>
+                                  <object class="GtkSpinButton" id="spin-rotate-x">
+                                    <property name="width-chars">5</property>
+                                    <property name="adjustment">adjustment-rotate-x</property>
+                                    <property name="wrap">1</property>
+                                    <property name="numeric">1</property>
+                                    <property name="margin-start">10</property>
+                                    <property name="margin-end">10</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+
+                            <child>
+                              <object class="GtkBox" id="box-rotate-y">
+                                <child>
+                                  <object class="GtkLabel" id="label-rotate-y">
+                                    <property name="label">Y</property>
+                                    <property name="margin-start">10</property>
+                                  </object>
+                                </child>
+
+                                <child>
+                                  <object class="GtkSpinButton" id="spin-rotate-y">
+                                    <property name="width-chars">5</property>
+                                    <property name="adjustment">adjustment-rotate-y</property>
+                                    <property name="wrap">1</property>
+                                    <property name="numeric">1</property>
+                                    <property name="margin-start">10</property>
+                                    <property name="margin-end">10</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+
+                            <child>
+                              <object class="GtkBox" id="box-rotate-z">
+                                <child>
+                                  <object class="GtkLabel" id="label-rotate-z">
+                                    <property name="label">Z</property>
+                                    <property name="margin-start">10</property>
+                                  </object>
+                                </child>
+
+                                <child>
+                                  <object class="GtkSpinButton" id="spin-rotate-z">
+                                    <property name="width-chars">5</property>
+                                    <property name="adjustment">adjustment-rotate-z</property>
+                                    <property name="wrap">1</property>
+                                    <property name="numeric">1</property>
+                                    <property name="margin-start">10</property>
+                                    <property name="margin-end">10</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="button-rotate">
+                                <property name="label">Rotate</property>
+                                  <property name="margin-start">10</property>
+                                  <property name="margin-end">10</property>
+                                  <property name="margin-bottom">10</property>
+                              </object>
+                            </child>
+                          </object>
+
+                        </child>
+
+                      </object>
+                    </child>
+                    <child>
+                    </child>
+                  </object>
+                </child>
+
+
+
+
+                <child>
+                  <object class="GtkFrame" id="frame-scale">
+                    <child type="label">
+                      <object class="GtkLabel">
+                        <property name="label">Scale</property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="GtkBox">
+                        <!-- <property name="orientation">vertical</property> -->
+                        <property name="spacing">10</property>
+                        <child>
+                          <object class="GtkSpinButton" id="spin-scale">
+                            <property name="width-chars">5</property>
+                            <property name="adjustment">adjustment-scale</property>
+                            <property name="digits">1</property>
+                            <property name="value">1</property>
+                            <property name="numeric">1</property>
+                            <property name="margin-start">10</property>
+                            <property name="margin-end">10</property>
+                            <property name="margin-bottom">10</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="button-scale">
+                            <property name="label">Scale</property>
+                              <property name="margin-start">10</property>
+                              <property name="margin-end">10</property>
+                              <property name="margin-bottom">10</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox" id="box-color-bg">
+                    <child>
+                      <object class="GtkLabel" id="label-color-bg">
+                        <property name="label">Background:</property>
+                        <property name="margin-end">10</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkColorButton" id="button-color-bg">
+                        <property name="name">button-color-bg</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkFrame" id="frame-projection">
+
+                    <child type="label">
+                      <object class="GtkLabel">
+                        <property name="label">Projection</property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="GtkBox" id="box-projection">
+                        <child>
+                          <object class="GtkCheckButton" id="check-parallel">
+                            <property name="label">Parallel</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="check-central">
+                            <property name="label">Central</property>
+                            <property name="group">check-parallel</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkFrame" id="frame-edges">
+
+                    <child type="label">
+                      <object class="GtkLabel">
+                        <property name="label">Edges</property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="GtkBox" id="box-edges">
+                        <child>
+                          <object class="GtkCheckButton" id="check-dashed">
+                            <property name="label">Dashed</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkColorButton" id="button-color-edge">
+                            <property name="name">button-color-edge</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSpinButton" id="spin-edge">
+                            <property name="name">spin-edges</property>
+                            <property name="width-chars">5</property>
+                            <property name="adjustment">adjustment-edges</property>
+                            <property name="value">1</property>
+                            <property name="numeric">1</property>
+                            <property name="margin-start">10</property>
+                            <property name="margin-end">10</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkFrame" id="frame-points">
+
+                    <child type="label">
+                      <object class="GtkLabel">
+                        <property name="label">Points</property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="GtkGrid" id="grid-points">
+                        <child>
+                          <object class="GtkCheckButton" id="check-none">
+                            <property name="label">None</property>
+                            <property name="active">1</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="check-circle">
+                            <property name="label">Circle</property>
+                            <property name="group">check-none</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="check-square">
+                            <property name="label">Square</property>
+                            <property name="group">check-none</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkColorButton" id="button-color-point">
+                            <property name="name">button-color-point</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSpinButton" id="spin-point">
+                            <property name="name">spin-point</property>
+                            <property name="width-chars">5</property>
+                            <property name="adjustment">adjustment-points</property>
+                            <property name="value">1</property>
+                            <property name="numeric">1</property>
+                            <property name="margin-start">10</property>
+                            <property name="margin-end">10</property>
+                            <layout>
+                              <property name="row">1</property>
+                              <property name="column">0</property>
+                              <property name="column-span">3</property>
+                            </layout>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="status">
+            <property name="hexpand">1</property>
+            <property name="label">No open files</property>
+            <property name="halign">start</property>
+            <property name="margin-start">10</property>
+            <property name="margin-bottom">5</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
